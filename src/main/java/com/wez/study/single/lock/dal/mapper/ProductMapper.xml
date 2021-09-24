@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wez.study.single.lock.dal.ProductMapper">
+
+    <resultMap id="productResultMap" type="Product">
+        <id property="id" column="id" />
+        <result property="productName" column="product_name"/>
+        <result property="price" column="price"/>
+        <result property="count" column="count"/>
+        <result property="productDescription" column="product_description"/>
+        <result property="createUser" column="create_user"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateUser" column="update_user"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="productResultMap">
+        select * from t_product
+    </select>
+
+    <select id="selectByPrimaryKey" resultMap="productResultMap">
+        select * from t_product where id=#{id}
+    </select>
+
+    <update id="updateByPrimaryKeySelective">
+        update t_product
+        set
+            product_name=#{productName},
+            price=#{price},
+            count=#{count},
+            product_description=#{productDescription},
+            create_time=#{createTime},
+            create_user=#{createUser},
+            update_time=#{updateTime},
+            update_user=#{updateUser}
+        where
+            id=#{id}
+    </update>
+
+    <update id="updateCount">
+        update t_product
+        set
+            count=count-#{count}
+        where
+            id=#{id}
+    </update>
+</mapper>

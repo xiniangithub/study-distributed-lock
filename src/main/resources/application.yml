@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/db_distributed_lock?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+mybatis:
+  # 配置mapper.xml文件路径
+  mapper-locations: classpath:com/wez/study/single/lock/dal/mapper/*.xml,classpath:com/wez/study/distribute/lock/database/dal/mapper/*.xml
+  type-aliases-package: com.wez.study.single.lock.po,com.wez.study.distribute.lock.po

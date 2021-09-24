@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wez.study.single.lock.dal.OrderMapper">
+
+    <parameterMap id="inserSelectiveParameterMap" type="Order">
+        <parameter property="id" javaType="Long" jdbcType="VARCHAR"></parameter>
+        <parameter property="orderStatus" javaType="Integer" jdbcType="INTEGER"></parameter>
+        <parameter property="receiverName" javaType="String" jdbcType="VARCHAR"></parameter>
+        <parameter property="receiverMobile" javaType="String" jdbcType="VARCHAR"></parameter>
+        <parameter property="orderAmount" javaType="BigDecimal" jdbcType="DECIMAL"></parameter>
+        <parameter property="createUser" javaType="String" jdbcType="VARCHAR"></parameter>
+        <parameter property="createTime" javaType="Date" jdbcType="TIMESTAMP"></parameter>
+        <parameter property="updateUser" javaType="String" jdbcType="VARCHAR"></parameter>
+        <parameter property="updateTime" javaType="Date" jdbcType="TIMESTAMP"></parameter>
+    </parameterMap>
+
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true" parameterType="Order">
+        insert into t_order (order_status, receiver_name, receiver_mobile, order_amount, create_user, create_time, update_user, update_time)
+        values (#{orderStatus}, #{receiverName}, #{receiverMobile}, #{orderAmount}, #{createUser}, #{createTime}, #{updateUser}, #{updateTime})
+    </insert>
+</mapper>
