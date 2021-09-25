@@ -19,3 +19,11 @@ select ... for update
 # 实现原理：setnx命令
 set key value [EX seconds] [PX milliseconds] [NX|XX]
 ```
+3. 基于Redisson实现
+```xml
+<dependency>
+   <groupId>org.redisson</groupId>
+   <artifactId>redisson</artifactId>
+   <version>3.16.3</version>
+</dependency>
+```
