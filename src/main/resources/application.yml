@@ -14,3 +14,4 @@ mybatis:
   # 配置mapper.xml文件路径
   mapper-locations: classpath:com/wez/study/single/lock/dal/mapper/*.xml,classpath:com/wez/study/distribute/lock/database/dal/mapper/*.xml
   type-aliases-package: com.wez.study.single.lock.po,com.wez.study.distribute.lock.po
+

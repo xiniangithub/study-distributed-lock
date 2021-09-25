@@ -20,10 +20,19 @@ select ... for update
 set key value [EX seconds] [PX milliseconds] [NX|XX]
 ```
 3. 基于Redisson实现
+- Redisson
 ```xml
 <dependency>
    <groupId>org.redisson</groupId>
    <artifactId>redisson</artifactId>
    <version>3.16.3</version>
+</dependency>
+```
+- SpringBoot集成Redisson
+```xml
+<dependency>
+    <groupId>org.redisson</groupId>
+    <artifactId>redisson-spring-boot-starter</artifactId>
+    <version>3.16.3</version>
 </dependency>
 ```
